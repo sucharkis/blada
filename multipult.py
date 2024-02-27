@@ -22,7 +22,7 @@ from tux import (
 )
 from lwm.llama import LLaMAConfig, FlaxLLaMAForCausalLM
 
-#!!!
+#!!! check gas
 FLAGS, FLAGS_DEF = define_flags_with_default(
     haystack_file="",
     max_tokens_per_batch=2000000,
