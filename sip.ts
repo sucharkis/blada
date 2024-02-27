@@ -23,3 +23,4 @@ export const config = {
     '/((?!_next|_vercel|.*\\..*).*)'
   ]
 };
+#get image
