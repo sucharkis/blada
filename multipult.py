@@ -64,7 +64,7 @@ class LLMNeedleHaystackTester:
         'Damascus', 'Seattle', 'Los Angeles', 'Yerevan', 'Victoria', 'Tunis', 'Astana', 'Seoul',
         'Buenos Aires', 'Bangkok', 'Colombo', 'Brussels', 'Khartoum', 'Doha', 'San Francisco', 'Vienna', 'Jakarta'
     ]
-
+#init
     def __init__(self,
                  needle="",
                  haystack_file="",
