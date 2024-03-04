@@ -9,6 +9,10 @@ from tqdm import tqdm
 import random
 from functools import cached_property
 import numpy as np
+import jax.
+import random
+from functools import cached_property
+import numpy as np
 import jax
 from jax.experimental.pjit import pjit
 from jax.sharding import PartitionSpec as PS
@@ -40,6 +44,9 @@ FLAGS, FLAGS_DEF = define_flags_with_default(
     dtype='fp32',
     load_llama_config='',
     update_llama_config='',
+    load_checkpoint='',
+    tokenizer=LLaMAConfig.get_tokenizer_config(),
+     update_llama_config='',
     load_checkpoint='',
     tokenizer=LLaMAConfig.get_tokenizer_config(),
     checkpointer=StreamingCheckpointer.get_default_config(),
@@ -77,6 +84,11 @@ class LLMNeedleHaystackTester:
                  document_depth_percent_min = 0,
                  document_depth_percent_max = 100,
                  document_depth_percent_intervals = 10,
+                  results_version = 1,
+                 rnd_number_digits = 7,
+                 context_lengths_min = 1000,
+                 context_lengths_max = 126000,
+                 context_lengths_num_interval
                  document_depth_percent_interval_type = "linear",
                  save_results = False,
                  final_context_length_buffer = 200,
