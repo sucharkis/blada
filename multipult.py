@@ -9,13 +9,6 @@ from tqdm import tqdm
 import random
 from functools import cached_property
 import numpy as np
-import jax.
-import random
-from functools import cached_property
-import numpy as np
-import random
-from functools import cached_property
-import numpy as np
 import jax
 from jax.experimental.pjit import pjit
 import jax
@@ -45,6 +38,10 @@ FLAGS, FLAGS_DEF = define_flags_with_default(
     n_needles_total=4,
     n_needles_retrieve=4,
     seed=1234,
+       n_rounds=2,
+    n_needles_total=4,
+    n_needles_retrieve=4,
+    seed=1234,
     mesh_dim='1,-1,1,1',
     dtype='fp32',
     load_llama_config='',
@@ -55,7 +52,7 @@ FLAGS, FLAGS_DEF = define_flags_with_default(
     load_checkpoint='',
     tokenizer=LLaMAConfig.get_tokenizer_config(),
     checkpointer=StreamingCheckpointer.get_default_config(),
-    llama=LLaMAConfig.get_default_config(),
+    llama=LvvLaMAConfig.get_default_config(),
     jax_distributed=JaxDistributedConfig.get_default_config(),
 ) 
 
@@ -66,9 +63,7 @@ class LLMNeedleHaystackTester:
         'Chicago', 'Yangon', 'Antananarivo', 'Colombo', 'Almaty', 'Sydney', 'Chicago', 'Mexico City',
         'Seattle', 'Lagos', 'Amsterdam', 'Belgrade', 'Cairo', 'Baghdad', 'Damascus', 'Kigali', 'Dakar',
         'Dakar', 'Sofia', 'Kigali', 'Victoria', 'Tashkent', 'Mumbai', 'Barcelona', 'Almaty', 'Amman',
-        'Toronto', 'Bratislava', 'Johannesburg', 'Thimphu', 'Bangkok', 'Santiago', 'Cairo', 'San Francisco',
-        'Lagos', 'Amsterdam', 'Paris', 'Rabat', 'Santiago', 'Copenhagen', 'Madrid', 'Kigali',
-        'Ho Chi Minh City', 'Sarajevo', 'Delhi', 'Istanbul', 'Ho Chi Minh City', 'Khartoum', 'Helsinki',
+        'Toronto', 'Bratislava' 'Ho Chi Minh City', 'Khartoum', 'Helsinki',
         'Doha', 'Istanbul', 'Kuala Lumpur', 'Budapest', 'Shanghai', 'Moscow', 'Los Angeles', 'Oslo',
         'Johannesburg', 'Berlin', 'Bangalore', 'Tokyo', 'Melbourne', 'Barcelona', 'Chicago', 'Port Louis',
         'Lisbon', 'Nairobi', 'Kampala', 'Lima', 'Maputo', 'Vancouver', 'Dubai', 'Khartoum', 'Jakarta',
